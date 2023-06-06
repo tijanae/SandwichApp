@@ -72,7 +72,7 @@ struct SandwichCell: View {
                 Image(sandwich.thumbnailName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 75, height: 75)
+                    .frame(width: 100, height: 75)
                     .cornerRadius(8)
                 
                 VStack(alignment: .leading) {
