@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-//    var sandwiches: [Sandwich] = []
     @ObservedObject var store: SandwichStore
+    @State private var sandwiches: [Sandwich] = []
     
     var body: some View {
         NavigationView {
@@ -35,6 +35,14 @@ struct ContentView: View {
             Text("Select a sandwich")
                 .font(.largeTitle)
         }
+        .onAppear(perform: restockSandwiches)
+//        .onReceive(store.$sandwiches) { newSandwiches in
+//            sandwiches = newSandwiches
+//        }
+    }
+    
+    func restockSandwiches() {
+        store.sandwiches = testData
     }
     
     func makeSandwich() {
@@ -52,6 +60,10 @@ struct ContentView: View {
     func deleteSandwich(offsets: IndexSet) {
         withAnimation {
             store.sandwiches.remove(atOffsets: offsets)
+        }
+        
+        if store.sandwiches.count <= 0 {
+            restockSandwiches()
         }
     }
 }
