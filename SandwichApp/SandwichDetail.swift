@@ -33,8 +33,6 @@ struct SandwichDetail: View {
                 .background(Color.red)
                 .foregroundColor(.yellow)
                 .transition(.move(edge: .bottom))
-//                .cornerRadius(5)
-                //            Text("\(sandwich.ingredientCount) ingredients")
             }
         }
         .navigationTitle(sandwich.name)

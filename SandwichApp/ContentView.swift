@@ -39,7 +39,7 @@ struct ContentView: View {
     
     func makeSandwich() {
         withAnimation {
-            store.sandwiches.append(Sandwich(name: "Patty Melt", ingredientCount: 4))
+            store.sandwiches.append(store.ChefsChoice())
         }
     }
     
